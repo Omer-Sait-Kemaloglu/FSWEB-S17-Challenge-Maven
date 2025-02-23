@@ -1,9 +1,9 @@
 package com.workintech.spring17challenge;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.workintech.spring17challenge.entity.*;
-import com.workintech.spring17challenge.exceptions.ApiErrorResponse;
 import com.workintech.spring17challenge.exceptions.ApiException;
+import model.Course;
+import model.Grade;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -209,7 +209,7 @@ class MainTest {
         Long expectedTimestamp = System.currentTimeMillis();
 
         // When
-        ApiErrorResponse errorResponse = new ApiErrorResponse(expectedStatus, expectedMessage, expectedTimestamp);
+        com.workintech.spring17challenge.exceptions.ApiResponseError errorResponse = new com.workintech.spring17challenge.exceptions.ApiResponseError(expectedStatus, expectedMessage, expectedTimestamp);
 
         // Then
         assertEquals(expectedStatus, errorResponse.getStatus(), "The status should match the expected value.");
